@@ -1,0 +1,32 @@
+<div class="list">
+
+  <h2 class="list_title">サインアップ</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field registrations_item">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: :"registrations_item-detail" %>
+    </div>
+
+    <div class="field registrations_item">
+      <%= f.label "パスワード" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off", class: :"registrations_item-detail" %>
+    </div>
+
+    <div class="field registrations_item">
+      <%= f.label "パスワード（確認）" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: :"registrations_item-detail" %>
+    </div>
+
+    <div class="actions registrations_item">
+      <%= f.submit "登録する", remote: true %>
+    </div>
+  <% end %>
+
+  <!-- <%= render "devise/shared/links" %> -->
+</div>

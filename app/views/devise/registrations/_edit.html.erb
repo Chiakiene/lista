@@ -1,0 +1,51 @@
+<div id="sessions_edit" class="sessions_edit">
+
+  <h2 class="list_title">プロフィール</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field registrations_item">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: :"registrations_item-detail" %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field registrations_item">
+      <%= f.label "新しいパスワード" %><br />
+      <%= f.password_field :password, autocomplete: "off", class: :"registrations_item-detail" %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+
+    <div class="field registrations_item">
+      <%= f.label "新しいパスワード（確認）" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: :"registrations_item-detail" %>
+    </div>
+
+    <div class="field registrations_item">
+      <%= f.label "現在のパスワード" %><br />
+      <%= f.password_field :current_password, autocomplete: "off", class: :"registrations_item-detail" %>
+    </div>
+
+    <div class="actions registrations_item">
+      <%= f.submit "更新する", remote: true %>
+    </div>
+  <% end %>
+
+
+  <%= link_to "戻る", :back, class: :"registrations_item", style: :"float: right;" %>
+
+</div>
+
+
+  <!-- <h3>Cancel my account</h3>
+
+  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+  <%= link_to "Back", :back %> -->

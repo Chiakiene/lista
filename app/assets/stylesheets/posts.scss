@@ -1,0 +1,73 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* index */
+.list {
+  float: left;
+  width: 320px;
+  height: auto;
+  max-height: 700px;
+  margin: 10px 0 0 10px;
+  padding: 10px;
+  background-color: #000;
+  border-radius: 5px;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.list_title {
+  padding-bottom: 20px;
+}
+
+.list_content {
+  width: 300px;
+  height: auto;
+  max-height: 520px;
+  overflow-y: scroll;
+}
+
+.list_content-item {
+  // position: relative;
+  padding: 0 0 10px 5px;
+  margin-left: 32px;
+  font-size: 16px;
+}
+
+.list_content .list_content-item a {
+  display: block;
+}
+
+.list_content-item-link {
+  cursor: pointer;
+}
+
+.list_content-item-list {
+  display: none;
+  z-index: 99;
+  opacity: 1.0;
+}
+
+.list_content-item-list-item {
+  float: left;
+  margin: 5px 10px 0 0;
+  list-style-type: none;
+}
+
+.list_content-item-list-item a {
+  padding: 0;
+}
+
+#post_item {
+  width: 290px;
+  padding: 5px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #111;
+  color: #fff;
+  font-size: 16px;
+}
+
+#post_item::placeholder {
+  color: #bbb;
+}

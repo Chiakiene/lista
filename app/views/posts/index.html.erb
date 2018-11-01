@@ -1,0 +1,55 @@
+<div class="list">
+  <p class="list_title">
+    達成したいこと
+  </p>
+  <ol class="list_content">
+    <% @posts.each do |post| %>
+      <li class="list_content-item">
+        <p class="list_content-item-link"><%= post.item %></p>
+        <ul class="list_content-item-list clearfix">
+          <li class="list_content-item-list-item" id="post-<%= post.id %>" data-post-id="<%= post.id %>">
+            <%= link_to "達成", switch_post_path(post.id), method: :put, remote: true %>
+          </li>
+          <li class="list_content-item-list-item">
+            <%= link_to "編集", posts_path(id: post.id) %>
+          </li>
+          <li class="list_content-item-list-item">
+            <%= link_to "削除", post_path(post), method: :delete, remote: true %>
+          </li>
+        </ul>
+      </li>
+    <% end %>
+  </ol>
+
+  <%= form_for(@post, remote: true) do |post| %>
+    <%= post.text_field :item, placeholder: :"ここに入力…（20字以内）", autocomplete: "off" %>
+  <% end %>
+
+</div>
+
+<div class="list">
+  <p class="list_title">
+    達成したこと
+  </p>
+  <ol class="list_content">
+    <% @done.each do |post| %>
+      <li class="list_content-item">
+        <p class="list_content-item-link"><%= post.item %></p>
+        <ul class="list_content-item-list clearfix">
+          <li class="list_content-item-list-item" id="post-<%= post.id %>" data-post-id="<%= post.id %>">
+            <%= link_to "戻す", switch_post_path(post.id), method: :put, remote: true %>
+          </li>
+          <li class="list_content-item-list-item">
+            <%= link_to "編集", posts_path(id: post.id), remote: true %>
+          </li>
+          <li class="list_content-item-list-item">
+            <%= link_to "削除", post_path(post), method: :delete, remote: true %>
+          </li>
+        </ul>
+      </li>
+    <% end %>
+  </ol>
+
+</div>
+
+<%= render :partial => "devise/registrations/edit" %>

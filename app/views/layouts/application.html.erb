@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <title>Lista</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body class="body clearfix">
+    <header class="header clearfix">
+      <h1 class="logo">
+      </h1>
+      <nav class="header_nav clearfix">
+        <% if user_signed_in? %>
+            <%= link_to 'プロフィール', "", class: :"menu-item link-to-edit", return: "false" %>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :"menu-item" %>
+        <% else %>
+            <%= link_to '新規登録', new_user_registration_path, class: :"menu-item" %>
+            <%= link_to 'ログイン', new_user_session_path, class: :"menu-item" %>
+        <% end %>
+      </nav>
+    </header>
+
+    <%= yield %>
+
+  </body>
+
+  <script>
+    $(".link-to-edit").click(function(){
+      $(".sessions_edit").fadeToggle()
+      return false
+    })
+
+    $(".body").click(function(){
+      $(".sessions_edit").fadeOut()
+    })
+
+    $(".list_content-item-link").click(function(){
+      $(this).next("ul").stop().slideToggle();
+      return false
+    })
+
+    var v = $("#post_item").val();
+    $("#post_item").val("");
+    $("#post_item").focus().val(v);
+
+  </script>
+
+</html>

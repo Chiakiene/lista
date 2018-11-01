@@ -1,0 +1,36 @@
+.sessions_edit {
+  display: none;
+  float: right;
+  width: 320px;
+  height: auto;
+  max-height: 700px;
+  margin: 10px 10px 0 0;
+  padding: 10px;
+  background-color: #000;
+  border-radius: 5px;
+  color: #fff;
+  opacity: 0.8;
+}
+
+
+.sessions_item {
+  margin-left: 10px !important;
+}
+
+.sessions_item-detail {
+  padding: 5px;
+  margin-top: 5px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #111;
+  color: #fff;
+  font-size: 16px;
+}
+
+.sessions_item-detail::placeholder {
+  color: #bbb;
+}
+
+.sessions_item input {
+  border-radius: 5px;
+}
